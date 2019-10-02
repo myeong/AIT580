@@ -5,7 +5,12 @@
 
 rm(list=ls())
 
-data <- read.csv('EmployeeAttrition.csv')
+data <- read.csv('~/git/AIT580/data/EmployeeAttrition.csv')
+
+# this is just for testing to use "print" statement.
+print(data[1,])
+
+
 
 # a. Find the number of rows and columns in the dataset (5 points)
 
