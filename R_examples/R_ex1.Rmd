@@ -1,0 +1,32 @@
+---
+title: "R Examples"
+author: "Myeong Lee"
+date: "10/2/2019"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+```
+
+
+```{r cars}
+data <- cars
+summary(cars)
+plot(cars)
+```
+
+## Including Plots
+```{r pressure, echo=FALSE}
+data2 <- pressure
+head(data2)
+lm(data2, formula = pressure ~ temperature)
+
+# this is a base function (no external library needed)
+hist(data2$temperature, col = "lightblue", border = "pink")
+
+# this is using ggplot2 library (does not work if ggplot2 is not loaded)
+ggplot(data=data2, aes(x=temperature, y=pressure)) + geom_point() + geom_line() 
+
+```
+
