@@ -4,29 +4,29 @@ author: "Myeong Lee"
 date: "10/2/2019"
 output: html_document
 ---
-
+# this block is for loading library.
 ```{r}
 library(ggplot2)
 ```
 
-
 ```{r cars}
 data <- cars
-summary(cars)
-plot(cars)
+summary(data)
+plot(data)
 ```
 
 ## Including Plots
 ```{r pressure, echo=FALSE}
 data2 <- pressure
 head(data2)
-lm(data2, formula = pressure ~ temperature)
+result <- lm(data2, formula = pressure ~ temperature)
+summary(result)
 
 # this is a base function (no external library needed)
 hist(data2$temperature, col = "lightblue", border = "pink")
 
 # this is using ggplot2 library (does not work if ggplot2 is not loaded)
-ggplot(data=data2, aes(x=temperature, y=pressure)) + geom_point() + geom_line() 
+ggplot(data=data2, aes(x=temperature, y=pressure, color="red")) + geom_point() + geom_line() + theme_bw()
 
 ```
 

@@ -1,0 +1,4 @@
+
+
+data <- cars
+summary(data)
