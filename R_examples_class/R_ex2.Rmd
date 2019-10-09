@@ -1,0 +1,70 @@
+---
+title: "R Examples: Hypothesis Testing"
+author: "Myeong Lee"
+date: "10/9/2019"
+output: html_document
+---
+
+# 0. Data Creation (cholesterol levels)
+```{r}
+group1 <- c(237, 289, 257, 228, 303, 275, 262, 304, 244, 233)
+group2 <- c(194, 240, 230, 186, 265, 222, 242, 281, 240, 212)
+```
+
+# 1. Paired T-test
+```{r}
+# Assuming group1 and group2 are exactly same people
+
+# Two-tailed: does not tell which one is greater than the other.
+# usually, posthot comparison needed
+t.test (group1, group2, paired=TRUE)
+
+# Left-tailed: whether group1 is less than group2
+t.test (group1, group2, paired=TRUE, alternative = "less")
+
+# Right-tailed: whether group1 is greater than group2
+t.test (group1, group2, paired=TRUE, alternative = "greater")
+```
+
+# 2. Independent/Unpaired Two Sample Test
+```{r}
+# assuming group1 and group2 are random samples from population
+
+# Two-tailed: does not tell which one is greater than the other.
+# usually, posthot comparison needed
+t.test (group1, group2)
+
+# Left-tailed: whether group1 is less than group2
+t.test (group1, group2, alternative = "less")
+
+# Right-tailed: whether group1 is greater than group2
+t.test (group1, group2, alternative = "greater")
+
+```
+
+# Student T distribution
+```{r}
+# critical numbers in t-distribution
+# 97.5% of all numbers in this distribution is less than 2.262
+qt(c(.025, .975), 9) 
+```
+
+# 3. Regression
+```{r cars}
+data <- cars
+summary(data)
+plot(data[,1:2])
+summary(lm(speed ~ dist, data=data))
+```
+
+# 4. ANOVA (whether continuous variables differ systematically between two or more categories)
+```{r}
+data$dist_category <- ifelse(data$dist>mean(data$dist), "Long", "Short")
+data$dist_category <- as.factor(data$dist_category)
+summary(aov(speed ~ dist_category, data=data))
+
+library(gplots)
+plotmeans(speed ~ dist_category, data=data, xlab="Distance Category",
+  ylab="Speed", main="Mean Plot\nwith 95% CI")
+```
+

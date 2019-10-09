@@ -30,3 +30,18 @@ ggplot(data=data2, aes(x=temperature, y=pressure, color="red")) + geom_point() +
 
 ```
 
+
+# Data Type Test
+```{r}
+typeof(data$speed)
+
+data$speed <- as.integer(data$speed)
+data$speed <- as.character(data$speed)
+data$speed <- as.factor(data$speed)
+data$speed <- as.numeric(data$speed)
+
+plot(cars)
+plot(data)
+
+```
+
