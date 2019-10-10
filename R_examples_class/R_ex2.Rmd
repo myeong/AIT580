@@ -17,7 +17,7 @@ group2 <- c(194, 240, 230, 186, 265, 222, 242, 281, 240, 212)
 
 # Two-tailed: does not tell which one is greater than the other.
 # usually, posthot comparison needed
-t.test (group1, group2, paired=TRUE)
+t.test (group1, group2, paired=TRUE) # p=0.05
 
 # Left-tailed: whether group1 is less than group2
 t.test (group1, group2, paired=TRUE, alternative = "less")
@@ -53,13 +53,14 @@ qt(c(.025, .975), 9)
 ```{r cars}
 data <- cars
 summary(data)
-plot(data[,1:2])
+plot(data)
+
 summary(lm(speed ~ dist, data=data))
 ```
 
 # 4. ANOVA (whether continuous variables differ systematically between two or more categories)
 ```{r}
-data$dist_category <- ifelse(data$dist>mean(data$dist), "Long", "Short")
+data$dist_category <- ifelse(data$dist > mean(data$dist), "Long", "Short")
 data$dist_category <- as.factor(data$dist_category)
 summary(aov(speed ~ dist_category, data=data))
 
