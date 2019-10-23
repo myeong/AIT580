@@ -1,11 +1,10 @@
 ---
-title: "R Examples: Hypothesis Testing"
+title: "R Examples: Shiny App"
 author: "Myeong Lee" 
 date: "10/23/2019"
 output: html_document
 ---
 
-# 0. Data Creation (cholesterol levels)
 ```{r}
 library (dplyr)
 library(shiny)
