@@ -13,7 +13,7 @@ data <- cars
 
 # Define UI for app that draws a histogram ----
 # Source code from https://shiny.rstudio.com/articles/basics.html
-ui <- carsPage(
+ui <- fluidPage(
 
   # App title ----
   titlePanel("Hello Shiny!"),
@@ -56,7 +56,7 @@ server <- function(input, output) {
   # 2. Its output type is a plot
   output$distPlot <- renderPlot({
 
-    x    <- cars$speed
+    x    <- data$speed
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
 
     hist(x, breaks = bins, col = "#75AADB", border = "white",
