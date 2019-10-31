@@ -15,7 +15,7 @@ webpage <- read_html(url)
 
 # Use CSS selectors to retrieve data that you want
 titles <- html_nodes(webpage, "div h2")
-without_tags <- gsub("<.*?>", "", titles)
+without_tags <- gsub("<.*?>", "", titles)  
 
 ```
 
