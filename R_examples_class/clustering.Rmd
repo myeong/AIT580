@@ -1,0 +1,28 @@
+---
+title: "R Examples: Clustering"
+author: "Myeong Lee"
+date: "11/6/2019"
+output: html_document
+---
+
+# Data Creation (random longitude/latitude, given gaussian distribution)
+```{r}
+x <- rbind(matrix(rnorm(100, sd = 0.3), ncol = 2),
+           matrix(rnorm(100, mean = 1, sd = 0.3), ncol = 2))
+plot(x)
+colnames(x) <- c("x", "y")
+```
+
+# Clustering (K=2, two-dimensional array)
+```{r}
+cl <- kmeans(x, 2)
+plot(x, col = cl$cluster)
+points(cl$centers, col = 1:2, pch = 8, cex = 2)
+```
+
+# Clustering (K=3, two-dimensional array)
+```{r}
+cl <- kmeans(x, 3)
+plot(x, col = cl$cluster)
+points(cl$centers, col = 1:3, pch = 8, cex = 2)
+```
