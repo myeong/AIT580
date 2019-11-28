@@ -1,5 +1,4 @@
 library("selectr")
-library("xml2")
 library("rvest")
 
 url <- "https://nytimes.com"
