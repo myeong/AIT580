@@ -20,8 +20,6 @@ topics
 docs
 ```
 
-
-
 ```{r}
 library(stringr)
 library(readr)
@@ -73,10 +71,10 @@ castdtm <- tweets %>% count(status_id, word) %>% cast_dtm(status_id, word, n)
 # Tuning -- determining K
 result <- FindTopicsNumber(
   castdtm,
-  topics = round(seq(1, 15, 1)),
+  topics = round(seq(2, 30, 1)),
   metrics = c("Arun2010", "Deveaud2014"),
   method = "Gibbs",
-  control = list(seed = 12),
+  control = list(seed = 11),
   mc.cores = 10L,
   verbose = TRUE
 )
@@ -100,4 +98,3 @@ docs        <- tidy(topic_model, matrix = "gamma")
 write.table(topics, "tweet_topics.csv", row.names = F, sep=",")
 print("Done.")
 ```
-
